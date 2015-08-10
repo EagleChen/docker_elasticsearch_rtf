@@ -3,5 +3,5 @@ dockerfile for https://github.com/medcl/elasticsearch-rtf/tree/1.6.0. Targeting 
 
 ## Usage
 ```
-docker run -d eaglechen/elasticsearch-mmseg
+docker run -d eaglechen/elasticsearch-mmseg:1.6.0
 ```
