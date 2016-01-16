@@ -5,3 +5,5 @@ dockerfile for https://github.com/medcl/elasticsearch-rtf/tree/2.1.1. Targeting 
 ```
 docker run -d eaglechen/docker-elasticsearch-rtf
 ```
+
+You'd better use your special configurations based on your needs.
