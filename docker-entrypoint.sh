@@ -7,4 +7,8 @@ if [ "${1:0:1}" = '-' ]; then
     set -- elasticsearch "$@"
 fi
 
+if [ "$1" = 'elasticsearch' ]; then
+    exec gosu es "$@"
+fi
+
 exec "$@"
