@@ -1,16 +1,21 @@
 FROM java:8-jre
 MAINTAINER Eagle Chen <chygr1234@gmail.com>
 
+ENV ES_VERSION="2.2.1"
+ENV GOSU_VERSION="1.8"
+
 # es needs non-root user to start
 
-RUN cd /tmp && curl -OL https://github.com/medcl/elasticsearch-rtf/archive/2.1.1.zip && \
-  unzip 2.1.1.zip -d /usr/share && rm /tmp/2.1.1.zip && \
-  mv /usr/share/elasticsearch-rtf-2.1.1 /usr/share/elasticsearch && \
+RUN cd /tmp && curl -OL https://github.com/medcl/elasticsearch-rtf/archive/${ES_VERSION}.zip && \
+  unzip ${ES_VERSION}.zip -d /usr/share && rm /tmp/${ES_VERSION}.zip && \
+  mv /usr/share/elasticsearch-rtf-${ES_VERSION} /usr/share/elasticsearch && \
   groupadd es && useradd -g es es && \
   for path in data config logs config/scripts; do mkdir -p "/usr/share/elasticsearch/$path"; done && \
   chown -R es:es /usr/share/elasticsearch && \
-  curl -o /usr/local/bin/gosu -fsSL "https://github.com/tianon/gosu/releases/download/1.7/gosu-$(dpkg --print-architecture)" && \
-  chmod +x /usr/local/bin/gosu
+  curl -o /usr/local/bin/gosu -fsSL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-$(dpkg --print-architecture)" && \
+  chmod +x /usr/local/bin/gosu && \
+  cd /usr/share/elasticsearch && \
+  bin/plugin -install royrusso/elasticsearch-HQ
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 

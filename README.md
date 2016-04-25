@@ -1,5 +1,5 @@
 # elasticsearch rtf
-dockerfile for https://github.com/medcl/elasticsearch-rtf/tree/2.1.1. Targeting 2.1.1 branch.
+dockerfile for https://github.com/medcl/elasticsearch-rtf/tree/2.2.1. Targeting 2.2.1 branch.
 
 ## Usage
 ```
