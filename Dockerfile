@@ -15,7 +15,7 @@ RUN cd /tmp && curl -OL https://github.com/medcl/elasticsearch-rtf/archive/${ES_
   curl -o /usr/local/bin/gosu -fsSL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-$(dpkg --print-architecture)" && \
   chmod +x /usr/local/bin/gosu && \
   cd /usr/share/elasticsearch && \
-  bin/plugin -install royrusso/elasticsearch-HQ
+  bin/plugin install royrusso/elasticsearch-HQ
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
