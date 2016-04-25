@@ -13,9 +13,7 @@ RUN cd /tmp && curl -OL https://github.com/medcl/elasticsearch-rtf/archive/${ES_
   for path in data config logs config/scripts; do mkdir -p "/usr/share/elasticsearch/$path"; done && \
   chown -R es:es /usr/share/elasticsearch && \
   curl -o /usr/local/bin/gosu -fsSL "https://github.com/tianon/gosu/releases/download/${GOSU_VERSION}/gosu-$(dpkg --print-architecture)" && \
-  chmod +x /usr/local/bin/gosu && \
-  cd /usr/share/elasticsearch && \
-  bin/plugin install royrusso/elasticsearch-HQ
+  chmod +x /usr/local/bin/gosu
 
 ENV PATH /usr/share/elasticsearch/bin:$PATH
 
